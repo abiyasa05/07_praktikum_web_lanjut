@@ -19,6 +19,8 @@ class MahasiswaController extends Controller
                 ->orwhere('Kelas', 'like', "%$katakunci%")
                 ->orwhere('Jurusan', 'like', "%$katakunci%")
                 ->orwhere('No_Handphone', 'like', "%$katakunci%")
+                ->orwhere('email', 'like', "%$katakunci%")
+                ->orwhere('tgl_lahir', 'like', "%$katakunci%")
                 ->paginate($jumlahbaris);
         } else {
             $mahasiswas = Mahasiswa::orderBy('Nim', 'desc')->paginate(5);
