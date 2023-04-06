@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Mahasiswa as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Kelas;
 
 class Mahasiswa extends Model
 {
@@ -19,10 +20,14 @@ class Mahasiswa extends Model
     protected $fillable = [
         'Nim',
         'Nama',
-        'Kelas',
+        'kelas_id',
         'Jurusan',
         'No_Handphone',
         'email',
         'tgl_lahir',
     ];
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }
